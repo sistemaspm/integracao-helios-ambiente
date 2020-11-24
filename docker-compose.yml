@@ -1,15 +1,3 @@
-# COMO USAR A IMAGEM
-
-## Docker Run
-```
-docker run -itd --name integracao-helios --env FTP_URL=ftp.endereco.com.br --env FTP_USER=usuario --env FTP_PASSWD=senha --env HELIOS_URI=https://helios.policiamilitar.mg.gov.br/v3/api/_track/register --env TOKEN_FORNECEDOR=token_fornecedor sistemapmmg/integracao-helios:latest
-```
-
-## Docker-Compose
-
-### Edite o arquivo docker-compose.yml conforme conteúdo abaixo e altere as variáveis de ambiente para se conectar ao FTP e ao HELIOS_URI
-
-```
 version: '2'
 services:
   integracao-helios:
