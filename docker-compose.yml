@@ -8,7 +8,7 @@ services:
       - FTP_USER=cameradts
       - FTP_PASSWD=cameradts
       - HELIOS_URI=https://helios.policiamilitar.mg.gov.br/v3/api/_track/register
-      - TOKEN_FORNECEDOR=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImp0aSI6IjQyOGI3NGYzLWU1ZTYtNDEyYy04NjM0LWNmNDVhYWMxYjQ1OSIsImlhdCI6MTYwNDU5Njc0OTYxMSwiZXhwIjoxNjA0NTk2ODM2MDExfQ.eyJnIjoiYzkyODMxMCIsIm4iOiJUZXN0ZSBTY3JpcHQgUEhQIERUUyIsImUiOjY1MTYsInAiOiJDVFMvRFRTIiwiciI6IkRUUyIsInUiOiIiLCJjIjo3MSwiZiI6WyIxMDAwMy4xMDAwMyJdLCJpIjpudWxsLCJrIjoyNH0.klbyZmwMsenhCNzZ2k-xQQbZyVOZlWCvRKM_0tuF1Co
+      - TOKEN_FORNECEDOR=token_fornecedor
     restart: always
     entrypoint: bash -c "php ./run.php"
   ftpd-server:
