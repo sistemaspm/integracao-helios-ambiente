@@ -19,7 +19,7 @@ services:
       - FTP_PASS=cameradts
       - PASV_MIN_PORT=21100
       - PASV_MAX_PORT=21110
-      - PASV_ENABLE=NO
+      - PASV_ENABLE=YES
     ports:
       - "21:21"
       - "21100-21110:21100-21110"
