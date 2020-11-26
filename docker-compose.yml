@@ -2,7 +2,7 @@ version: '2'
 services:
   integracao-helios:
     image: sistemapmmg/integracao-helios:latest
-    container_name: php-integracao-helios
+    container_name: integracao-helios
     environment:
       - FTP_URL=ftp-server
       - FTP_USER=cameradts
