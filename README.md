@@ -8,6 +8,7 @@ docker run -itd --name integracao-helios --env FTP_URL=ftp.endereco.com.br --env
 ## Docker-Compose
 
 ### Edite o arquivo docker-compose.yml conforme conteúdo abaixo e altere as variáveis de ambiente para se conectar ao FTP e ao HELIOS_URI
+ 
 
 ```
 version: '2'
@@ -17,18 +18,18 @@ services:
     container_name: php-integracao-helios
     environment:
       - FTP_URL=ftp-server
-      - FTP_USER=cameradts
-      - FTP_PASSWD=cameradts
+      - FTP_USER=usr_ftp
+      - FTP_PASSWD=pass_ftp
       - HELIOS_URI=https://helios.policiamilitar.mg.gov.br/v3/api/_track/register
-      - TOKEN_FORNECEDOR=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImp0aSI6IjQyOGI3NGYzLWU1ZTYtNDEyYy04NjM0LWNmNDVhYWMxYjQ1OSIsImlhdCI6MTYwNDU5Njc0OTYxMSwiZXhwIjoxNjA0NTk2ODM2MDExfQ.eyJnIjoiYzkyODMxMCIsIm4iOiJUZXN0ZSBTY3JpcHQgUEhQIERUUyIsImUiOjY1MTYsInAiOiJDVFMvRFRTIiwiciI6IkRUUyIsInUiOiIiLCJjIjo3MSwiZiI6WyIxMDAwMy4xMDAwMyJdLCJpIjpudWxsLCJrIjoyNH0.klbyZmwMsenhCNzZ2k-xQQbZyVOZlWCvRKM_0tuF1Co
+      - TOKEN_FORNECEDOR=token_fornecedor
     restart: always
     entrypoint: bash -c "php ./run.php"
   ftpd-server:
     image: fauria/vsftpd
     container_name: ftp-server
     environment:
-      - FTP_USER=cameradts
-      - FTP_PASS=cameradts
+      - FTP_USER=usr_ftp
+      - FTP_PASS=pass_ftp
       - PASV_MIN_PORT=21100
       - PASV_MAX_PORT=21110
       - PASV_ENABLE=NO
@@ -38,4 +39,15 @@ services:
     volumes:
       - ./ftp-files:/home/vsftpd
     restart: always
-    
+```
+
+# INSTALAÇÃO EM LINUX
+
+## Executar os comandos abaixo
+
+```
+pkill docker
+iptables -t nat -F
+ifconfig docker0 down
+brctl delbr docker0
+docker -d
